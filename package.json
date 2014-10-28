@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "say": "^0.6.0"
+      "say":"xiproject/say.js"
   }
 }
