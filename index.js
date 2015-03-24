@@ -12,13 +12,13 @@ var speaker = {
 
 if (os.platform() === 'linux') {
     var say = require('say');
-    speaker.speak = function(text) {
-        return say('voice_default', text);
-    }
+    speaker.speak = function(text) { 
+        return say.speak('tts', text);
+    };
 } else if (os.platform() === 'darwin') {
     var say = require('say');
     speaker.speak = function(text) {
-        return say('Vicki', text);
+        return say.speak('Vicki', text);
     }
 } else if (os.platform() === 'win32') {
     var edge = require('./src/edge');
