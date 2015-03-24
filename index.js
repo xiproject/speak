@@ -13,7 +13,7 @@ var speaker = {
 if (os.platform() === 'linux') {
     var say = require('say');
     speaker.speak = function(text) { 
-        return say.speak('tts', text);
+        return say.speak('google', text);
     };
 } else if (os.platform() === 'darwin') {
     var say = require('say');
