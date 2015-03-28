@@ -18,3 +18,6 @@ $ node index.js --logfile speak.log 2>&1 | bunyan
 
 - On OS X, `speak` uses the built in voices.
 - On Linux, `speak` uses Festival if it is installed. If not, you can opt-in to using Google TTS which requires VLC to be installed.
+
+## License
+GPLv3
