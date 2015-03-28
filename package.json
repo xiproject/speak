@@ -1,6 +1,7 @@
 {
   "name": "speak",
-  "version": "1.0.0",
+  "repository": "https://github.com/xiproject/speak",
+  "version": "0.0.1",
   "description": "Xi speak agent",
   "main": "index.js",
   "scripts": {
