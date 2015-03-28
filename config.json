@@ -2,11 +2,11 @@
     "linux": [{
         "implementation": "festival",
         "voice": "voice_default",
-        "use": false
+        "use": true
     }, {
         "implementation": "google",
         "voice": "default",
-        "use": true
+        "use": false
     }],
     "darwin": [{
         "voice": "Vicki"
