@@ -1,11 +1,9 @@
 var xal = require('../../xal-javascript');
 var os = require('os');
 var fs = require('fs');
-
+var config = require('./config.json');
 var speaking = true;
 var speakingQueue = [];
-var config = {};
-
 var speaker = {
     speak: null,
     stop: function() {}
@@ -13,14 +11,34 @@ var speaker = {
 
 if (os.platform() === 'linux') {
     var say = require('say');
-    speaker.speak = function(text) {
-        return say.speak('tts', text);
-    };
+    var i, stt;
+    for (i = 0; i < config.linux.length; i += 1) {
+        if (config.linux[i].use) {
+            stt = config.linux[i];
+        }
+    }
+    if (!stt) {
+        xal.log.fatal('Implementation not set for speak. Please check config.json');
+    }
+
+    if (stt.implementation === 'festival') {
+        speaker.speak = function(text) {
+            return say.speak(stt.voice, text);
+        };
+    } else if (stt.implementation === 'google') {
+        speaker.speak = function(text) {
+            return say.speak(stt.implementation, text);
+        };
+
+    } else {
+        xal.log.fatal('Given implementation does not exist');
+    }
+
     speaker.stop = say.stop;
 } else if (os.platform() === 'darwin') {
     say = require('say');
     speaker.speak = function(text) {
-        return say.speak('Vicki', text);
+        return say.speak(config.darwin.voice, text);
     };
     speaker.stop = say.stop;
 } else if (os.platform() === 'win32') {
@@ -43,4 +61,6 @@ xal.on('xi.event.input.text', function(state, next) {
     }
 });
 
-xal.start({name: 'Speak'});
+xal.start({
+    name: 'Speak'
+});

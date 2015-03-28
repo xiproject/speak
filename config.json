@@ -1,0 +1,14 @@
+{
+    "linux": [{
+        "implementation": "festival",
+        "voice": "voice_default",
+        "use": false
+    }, {
+        "implementation": "google",
+        "voice": "default",
+        "use": true
+    }],
+    "darwin": [{
+        "voice": "Vicki"
+    }]
+}
