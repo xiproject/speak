@@ -11,6 +11,8 @@ Clone the repo, `cd` into it and run `npm install`.
 ```sh
 $ node index.js --logfile speak.log 2>&1 | bunyan
 ```
+## Usage
+- To change the TTS implementation, set `use` to true for that implementation in `config.json`.
 
 ## Caveats
 
